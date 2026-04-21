@@ -21,3 +21,37 @@ def create_shipments_table():
 
     conn.commit()
     conn.close()
+# Create drivers table
+def create_drivers_table():
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS drivers (
+        driver_id INTEGER PRIMARY KEY,
+        name TEXT,
+        license_number TEXT,
+        phone TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+
+# Create vehicles table
+def create_vehicles_table():
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS vehicles (
+        vehicle_id INTEGER PRIMARY KEY,
+        vehicle_type TEXT,
+        capacity INTEGER,
+        status TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()

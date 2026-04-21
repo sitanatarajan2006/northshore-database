@@ -1,6 +1,8 @@
-from database import create_shipments_table
+from database import create_shipments_table, create_drivers_table, create_vehicles_table
 
-# Run the function to create shipments table
+# Run database setup step-by-step
 create_shipments_table()
+create_drivers_table()
+create_vehicles_table()
 
-print("Shipments table created successfully!")
+print("Core tables created successfully!")
