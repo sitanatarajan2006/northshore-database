@@ -3,7 +3,7 @@ def connect():
     conn = sqlite3.connect("northshore.db") #creates the file if it does not exist
     return conn
 #function to create shipment table only
-def create_shipments_table():
+def shipments_table():
     conn = connect()
     cursor = conn.cursor
 
@@ -22,7 +22,7 @@ def create_shipments_table():
     conn.commit()
     conn.close()
 # Create drivers table
-def create_drivers_table():
+def drivers_table():
     conn = connect()
     cursor = conn.cursor()
 
@@ -40,7 +40,7 @@ def create_drivers_table():
 
 
 # Create vehicles table
-def create_vehicles_table():
+def vehicles_table():
     conn = connect()
     cursor = conn.cursor()
 
@@ -50,6 +50,40 @@ def create_vehicles_table():
         vehicle_type TEXT,
         capacity INTEGER,
         status TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+
+#Create warehouse table
+def warehouse_table():
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS warehouses (
+        warehouse_id INTEGER PRIMARY KEY,
+        location TEXT,
+        manager_name TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+# Create inventory table
+def inventory_table():
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS inventory (
+        item_id INTEGER PRIMARY KEY,
+        item_name TEXT,
+        quantity INTEGER,
+        warehouse_id INTEGER
     )
     """)
 

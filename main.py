@@ -1,8 +1,16 @@
-from database import create_shipments_table, create_drivers_table, create_vehicles_table
+from database import (
+    shipments_table,
+    drivers_table,
+    vehicles_table,
+    warehouse_table,
+    inventory_table
+)
 
-# Run database setup step-by-step
-create_shipments_table()
-create_drivers_table()
-create_vehicles_table()
+# Create all system tables
+shipments_table()
+drivers_table()
+vehicles_table()
+warehouse_table()
+inventory_table()
 
-print("Core tables created successfully!")
+print("All database tables created successfully!")
